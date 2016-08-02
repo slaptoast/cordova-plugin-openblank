@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-wkwebview-openblank" version="0.0.1">
+        id="cordova-plugin-open-blank" version="0.0.1">
     <name>Open Blank</name>
     <description>Cordova Open Blank Plugin</description>
     <license>Apache 2.0</license>
