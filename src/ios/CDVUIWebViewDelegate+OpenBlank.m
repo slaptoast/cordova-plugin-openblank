@@ -6,10 +6,10 @@
 //
 //
 
-#import "CDVUIWebViewUIDelegate+OpenBlank.h"
+#import "CDVUIWebViewDelegate+OpenBlank.h"
 
 @implementation CDVUIWebViewUIDelegate (OpenBlank)
-- (UIWebView *)webView:(UIWebView *)webView createWebViewWithConfiguration:(UIWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+- (UIWebView *)webView:(UIWebView *)webView createWebViewWithConfiguration:(WebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
     if (!navigationAction.targetFrame.isMainFrame) {
       NSURL *url = [[navigationAction request] URL];
       UIApplication *application = [UIApplication sharedApplication];
