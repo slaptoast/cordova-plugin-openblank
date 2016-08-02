@@ -7,7 +7,7 @@
     <repo>https://github.com/slaptoast/cordova-plugin-openblank.git</repo>
     <keywords>cordova,webview, iframe,openblank,blanki</keywords>
     <platform name="ios">
-      <header-file src="src/ios/CDVUIWebViewUIDelegate+OpenBlank.h" />
-      <source-file src="src/ios/CDVUIWebViewUIDelegate+OpenBlank.m" />
+      <header-file src="src/ios/CDVUIWebViewDelegate+OpenBlank.h" />
+      <source-file src="src/ios/CDVUIWebViewDelegate+OpenBlank.m" />
     </platform>
 </plugin>
