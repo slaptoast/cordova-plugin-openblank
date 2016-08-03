@@ -11,6 +11,11 @@
       <source-file src="src/ios/CDVIntentAndNavigationFilter+OpenBlank.m" />
     </platform>
     <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OpenBlank"> 
+                <param name="android-package" value="org.apache.cordova.openblank.OpenBlank"/>
+            </feature>
+        </config-file>
         <source-file src="src/android/OpenBlank.java" target-dir="src/org/apache/cordova/openblank" />
     </platform>
 </plugin>
