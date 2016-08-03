@@ -10,4 +10,7 @@
       <header-file src="src/ios/CDVIntentAndNavigationFilter+OpenBlank.h" />
       <source-file src="src/ios/CDVIntentAndNavigationFilter+OpenBlank.m" />
     </platform>
+    <platform name="android">
+        <source-file src="src/android/OpenBlank.java" target-dir="src/org/apache/cordova/openblank" />
+    </platform>
 </plugin>
