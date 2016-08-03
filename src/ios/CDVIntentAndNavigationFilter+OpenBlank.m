@@ -22,6 +22,9 @@
 
 @implementation CDVIntentAndNavigationFilter (OpenBlank)
 
+
+
+
 #pragma mark CDVPlugin
 
 - (void)pluginInitialize
@@ -39,10 +42,20 @@
     
     switch (navigationType) {
         case UIWebViewNavigationTypeLinkClicked:
-            
+        {
             [[UIApplication sharedApplication] openURL:url];
-
             allowNavigationsPass = NO;
+        }
+        case UIWebViewNavigationTypeOther:
+        {
+            NSString *string1 = url.absoluteString;
+            NSRange range = [ string1 rangeOfString:@"utm_content"];
+            if (range.location != NSNotFound) {
+                [[UIApplication sharedApplication] openURL:url];
+                allowNavigationsPass = NO;
+            }
+        }
+                
     }
     
     return allowNavigationsPass;
