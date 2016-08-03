@@ -24,6 +24,8 @@ public class OpenBlank extends CordovaPlugin {
 
     public boolean execute(String action, CordovaArgs args, final CallbackContext callbackContext) throws JSONException {
     	Log.d("OpenBlank", "OpenBlank execute called with action " + action);
+
+    	return true;
 	}
 
     @Override
