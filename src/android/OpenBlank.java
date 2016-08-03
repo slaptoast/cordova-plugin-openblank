@@ -18,7 +18,7 @@ import android.util.Log;
 public class OpenBlank extends CordovaPlugin {
     @Override
 	   public Boolean shouldOpenExternalUrl(String url) {
-	   		Log.d("OpenBlank Plugin called with URL " + url);
+	   		Log.d("OpenBlank", "OpenBlank Plugin called with URL " + url);
 	   		if(url.indexOf("utm_content") > -1) {
 	   			return true;
 	   		}
