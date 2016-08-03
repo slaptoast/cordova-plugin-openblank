@@ -28,13 +28,34 @@ public class OpenBlank extends CordovaPlugin {
     	return true;
 	}
 
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+
+		Log.d("OpenBlank", "initialized");        
+    }
+
     @Override
 	   public Boolean shouldOpenExternalUrl(String url) {
-	   		Log.d("OpenBlank", "OpenBlank Plugin called with URL " + url);
-	   		if(url.indexOf("utm_content") > -1) {
-	   			return true;
-	   		}
+	   		Log.d("OpenBlank", "shouldOpenExternalUrl called with URL " + url);
+	   		// if(url.indexOf("utm_content") > -1) {
+	   		// 	return true;
+	   		// }
 
 	        return null;
 	    }
+
+	@Override
+    public Boolean shouldAllowNavigation(String url) {
+   		Log.d("OpenBlank", "shouldAllowNavigation called with URL " + url);
+	    
+        return null;
+    }
+
+    @Override
+    public boolean onOverrideUrlLoading(String url) {
+    	Log.d("OpenBlank", "onOverrideUrlLoading called with URL " + url);
+        return false;
+    }
+
+
 }
