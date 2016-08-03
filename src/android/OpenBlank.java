@@ -15,14 +15,10 @@ import android.annotation.SuppressLint;
 
 import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
 @SuppressLint("SetJavaScriptEnabled")
 public class OpenBlank extends CordovaPlugin {
 
-    public boolean execute(String action, CordovaArgs args, final CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
     	Log.d("OpenBlank", "OpenBlank execute called with action " + action);
 
     	return true;
