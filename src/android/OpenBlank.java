@@ -74,14 +74,8 @@ public class OpenBlank extends CordovaPlugin {
 	            Log.d("OpenBlank", "OpenBlank: Error loading url "+url+":"+ e.toString());
 	            return true;
 	        }
-
-
-
-
-   			return true;
    		}
 
+   		return true;
     }
-
-
 }
