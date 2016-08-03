@@ -11,6 +11,7 @@ import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.LOG;
 import org.apache.cordova.PluginManager;
 import org.apache.cordova.PluginResult;
+import android.annotation.SuppressLint;
 
 import android.util.Log;
 
