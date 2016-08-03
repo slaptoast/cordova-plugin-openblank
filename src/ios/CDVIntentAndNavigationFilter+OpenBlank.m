@@ -18,47 +18,34 @@
  */
 
 #import "CDVIntentAndNavigationFilter+OpenBlank.h"
-#import <Cordova/CDVIntentAndNavigationFilter.h>
 #import <Cordova/CDV.h>
 
 @implementation CDVIntentAndNavigationFilter (OpenBlank)
+
+#pragma mark CDVPlugin
+
+- (void)pluginInitialize
+{
+    if ([self.viewController isKindOfClass:[CDVViewController class]]) {
+        [(CDVViewController*)self.viewController parseSettingsWithParser:self];
+    }
+}
+
 - (BOOL)shouldOverrideLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSString* allowIntents_whitelistRejectionFormatString = @"ERROR External navigation rejected - <allow-intent> not set for url='%@'";
-    NSString* allowNavigations_whitelistRejectionFormatString = @"ERROR Internal navigation rejected - <allow-navigation> not set for url='%@'";
     
     NSURL* url = [request URL];
-    BOOL allowNavigationsPass = NO;
-    NSMutableArray* errorLogs = [NSMutableArray array];
+    BOOL allowNavigationsPass = YES;
     
     switch (navigationType) {
         case UIWebViewNavigationTypeLinkClicked:
-            // Note that the rejection strings will *only* print if
-            // it's a link click (and url is not whitelisted by <allow-*>)
-            if ([self.allowIntentsWhitelist URLIsAllowed:url logFailure:NO]) {
-                // the url *is* in a <allow-intent> tag, push to the system
-                [[UIApplication sharedApplication] openURL:url];
-                return YES;
-            } else {
-                [[UIApplication sharedApplication] openURL:url];
-                [errorLogs addObject:[NSString stringWithFormat:allowIntents_whitelistRejectionFormatString, [url absoluteString]]];
-            }
-            // fall through, to check whether you can load this in the webview
-        default:
-            // check whether we can internally navigate to this url
-            allowNavigationsPass = [self.allowNavigationsWhitelist URLIsAllowed:url logFailure:NO];
-            // log all failures only when this last filter fails
-            if (!allowNavigationsPass){
-                [errorLogs addObject:[NSString stringWithFormat:allowNavigations_whitelistRejectionFormatString, [url absoluteString]]];
-
-                // this is the last filter and it failed, now print out all previous error logs
-                for (NSString* errorLog in errorLogs) {
-                    NSLog(@"%@", errorLog);
-                }
-            }
             
-            return allowNavigationsPass;
+            [[UIApplication sharedApplication] openURL:url];
+
+            allowNavigationsPass = NO;
     }
+    
+    return allowNavigationsPass;
 }
 
 @end
