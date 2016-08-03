@@ -15,6 +15,10 @@ import android.annotation.SuppressLint;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+
 @SuppressLint("SetJavaScriptEnabled")
 public class OpenBlank extends CordovaPlugin {
 
