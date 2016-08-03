@@ -17,6 +17,11 @@ import android.util.Log;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class OpenBlank extends CordovaPlugin {
+
+    public boolean execute(String action, CordovaArgs args, final CallbackContext callbackContext) throws JSONException {
+    	Log.d("OpenBlank", "OpenBlank execute called with action " + action);
+	}
+
     @Override
 	   public Boolean shouldOpenExternalUrl(String url) {
 	   		Log.d("OpenBlank", "OpenBlank Plugin called with URL " + url);
