@@ -23,6 +23,12 @@ import org.json.JSONException;
 @SuppressLint("SetJavaScriptEnabled")
 public class OpenBlank extends CordovaPlugin {
 
+    @Override
+    protected void pluginInitialize() {
+		Log.v("OpenBlank", "pluginInitialize setAppContext");
+    }
+
+
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
     	Log.d("OpenBlank", "OpenBlank execute called with action " + action);
 
