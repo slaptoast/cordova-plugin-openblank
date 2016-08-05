@@ -54,7 +54,7 @@ public class OpenBlank extends CordovaPlugin {
     @Override
     public boolean onOverrideUrlLoading(String url) {
     	Log.d("OpenBlank", "onOverrideUrlLoading called with URL " + url);
-   		if(url.indexOf("utm_content") > -1) {
+   		if(url.indexOf("utm_content") > -1 || url.indexOf("adurl") > -1) {
 
 	        try {
 	            Intent intent = null;
